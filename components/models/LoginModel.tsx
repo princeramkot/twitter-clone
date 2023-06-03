@@ -3,8 +3,8 @@ import { signIn } from "next-auth/react";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import useLoginModal from "@/app/hooks/useLoginModal";
-import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/hooks/useLoginModal";
+import useRegisterModal from "@/hooks/useRegisterModal";
 
 import Input from "../Input";
 import Modal from "../Model";
@@ -27,8 +27,9 @@ const LoginModal = () => {
       });
 
       toast.success('Logged in');
-
+      console.log("time to close login modal");
       loginModal.onClose();
+      console.log(loginModal.isOpen);
     } catch (error) {
       toast.error('Something went wrong');
     } finally {

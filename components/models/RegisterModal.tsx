@@ -1,13 +1,14 @@
+"use client";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useCallback, useState } from "react";
 import { signIn } from 'next-auth/react';
 
-import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useRegisterModal from "@/hooks/useRegisterModal";
 
 import Input from "../Input";
 import Modal from "../Model";
-import useLoginModal from "@/app/hooks/useLoginModal";
+import useLoginModal from "@/hooks/useLoginModal";
 
 const RegisterModal = () => {
   const loginModal = useLoginModal();
@@ -39,6 +40,8 @@ const RegisterModal = () => {
         username,
         name,
       });
+
+      console.log("account created");
 
       setIsLoading(false)
 

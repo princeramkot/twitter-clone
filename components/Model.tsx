@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
         "
       >
         <div className="relative w-full lg:w-3/6 my-6 mx-auto lg:max-w-3xl h-full lg:h-auto">
-          {/*content*/}
+          content
           <div className="
             h-full
             lg:h-auto
@@ -71,7 +71,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
             focus:outline-none
             "
           >
-            {/*header*/}
+           
             <div className="
               flex 
               items-center 
@@ -92,7 +92,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
                   hover:opacity-70
                   transition
                 "
-                //onClick={handleClose}
+                onClick={handleClose}
               >
                 <AiOutlineClose size={20} />
               </button>
@@ -103,7 +103,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
             </div>
             {/*footer*/}
             <div className="flex flex-col gap-2 p-10">
-              <Button disabled={disabled} label={actionLabel} secondary fullWidth large />
+              <Button disabled={disabled} label={actionLabel} secondary fullWidth large onClick={handleSubmit} />
               {footer}
             </div>
           </div>

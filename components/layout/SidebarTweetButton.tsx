@@ -2,17 +2,21 @@
 import { useCallback } from "react";
 import { FaFeather } from "react-icons/fa";
 import LoginModal from "../models/LoginModel";
-import useLoginModal from "@/app/hooks/useLoginModal";
+import useLoginModal from "@/hooks/useLoginModal";
+import useCurrentUser from "@/hooks/useCurrentUser";
 
 const SidebarTweetButton = () => {
     const loginModal= useLoginModal();
+    const { data: currentUser } = useCurrentUser();
     const onClick = useCallback(()=>{
-        loginModal.onOpen();
-    },[loginModal]);
+        if (!currentUser) {
+            return loginModal.onOpen();
+          }
+    },[loginModal,currentUser]);
 
     return ( 
     <div  >
-        <div className="
+        <div onClick={onClick} className="
             mt-6
             lg:hidden
             rounded-full
@@ -29,7 +33,7 @@ const SidebarTweetButton = () => {
             <FaFeather size={24} color="white"/>
         </div>
 
-        <div className="
+        <div onClick={onClick} className="
             mt-6
             hidden
             lg:block
